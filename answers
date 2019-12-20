@@ -1,0 +1,8 @@
+terraform init
+terraform plan -out=tfdev_plan -var env=dev
+terraform workspace new dev
+terraform apply tfdev_plan
+
+terraform workspace new prod
+terraform plan -var env=prod -out=tfprod_plan
+terraform apply tfprod_plan
